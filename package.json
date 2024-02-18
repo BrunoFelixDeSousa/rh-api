@@ -1,0 +1,19 @@
+{
+  "name": "rh",
+  "version": "1.0.0",
+  "description": "projeto api rh",
+  "main": "index.js",
+  "scripts": {
+    "start:dev": "tsx watch src/server.ts"
+  },
+  "keywords": [
+    "node",
+    "fastify",
+    "zod",
+    "api",
+    "prisma",
+    "typescript"
+  ],
+  "author": "Bruno Félix de Sousa",
+  "license": "ISC"
+}
