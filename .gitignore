@@ -1,4 +1,8 @@
 node_modules
 build
 .env
+
+
 meu_manual.md
+
+.idea/
