@@ -1,0 +1,86 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Cargo {
+  id          Int           @id @default(autoincrement())
+  nome_cargo  String
+  Funcionario Funcionario[]
+
+  @@map("cargo")
+}
+
+model Nivel {
+  id          Int           @id @default(autoincrement())
+  nome_nivel  String
+  Funcionario Funcionario[]
+
+  @@map("nivel")
+}
+
+model Area {
+  id          Int           @id @default(autoincrement())
+  nome_area   String
+  Funcionario Funcionario[]
+
+  @@map("area")
+}
+
+model Funcionario {
+  id                   Int                    @id @default(autoincrement())
+  nome_completo        String
+  sexo                 String
+  data_nascimento      DateTime
+  endereco             String
+  data_contratacao     DateTime
+  data_demissao        DateTime
+  salario_base         Float
+  impostos             Float
+  beneficios           Float
+  VT                   Float
+  VR                   Float
+  salario_total        Float
+  Cargo                Cargo                  @relation(fields: [Cargo_ID], references: [id])
+  Cargo_ID             Int
+  Nivel                Nivel                  @relation(fields: [Nivel_ID], references: [id])
+  Nivel_ID             Int
+  Area                 Area                   @relation(fields: [Area_ID], references: [id])
+  Area_ID              Int
+  TempoEmpresa         TempoEmpresa[]
+  AvaliacaoFuncionario AvaliacaoFuncionario[]
+
+  @@map("funcionario")
+}
+
+model TempoEmpresa {
+  id                Int         @id @default(autoincrement())
+  funcionario       Funcionario @relation(fields: [funcionario_id], references: [id])
+  funcionario_id    Int
+  tempo_empresa     Int
+  faixa_tempo       String
+  ferias_acumuladas Int
+  horas_extras      Int
+
+  @@map("tempo_empresa")
+}
+
+model AvaliacaoFuncionario {
+  id              Int         @id @default(autoincrement())
+  funcionario     Funcionario @relation(fields: [funcionario_id], references: [id])
+  funcionario_id  Int
+  trabalho_equipe Int
+  lideranca       Int
+  comunicacao     Int
+  iniciativa      Int
+  organizacao     Int
+
+  @@map("avaliacao_funcionario")
+}
