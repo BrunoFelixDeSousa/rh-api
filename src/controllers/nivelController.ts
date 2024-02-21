@@ -30,7 +30,7 @@ export async function salvarNivel(
 }
 
 // Função assíncrona para listar todos os cargos
-export async function listarCargos(
+export async function listarNiveis(
   request: FastifyRequest,
   response: FastifyReply,
 ) {

@@ -1,5 +1,6 @@
 // Importa as funções listarCargos e salvarCargo do módulo cargoController
 import { listarCargos, salvarCargo } from '@/controllers/cargoController'
+import { listarNiveis, salvarNivel } from '@/controllers/nivelController'
 // Importa o tipo FastifyInstance para representar a instância do Fastify
 import { FastifyInstance } from 'fastify'
 
@@ -9,4 +10,8 @@ export async function appRoutes(app: FastifyInstance) {
   app.post('/cargo', salvarCargo)
   // Configura a rota GET '/cargo', associando-a à função listarCargos do controller
   app.get('/cargo', listarCargos)
+  // Configura a rota POST '/nivel', associando-a à função salvarNivel do controller
+  app.post('/nivel', salvarNivel)
+  // Configura a rota GET '/nivel', associando-a à função listarNiveis do controller
+  app.get('/nivel', listarNiveis)
 }
