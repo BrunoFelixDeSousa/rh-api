@@ -20,9 +20,6 @@ export class CargoRepository implements CargoRepositoryInterface {
   // Implementação do método findAll definido pela interface
   async findAll(): Promise<Cargo[]> {
     // Utiliza a instância prisma para encontrar todos os cargos existentes
-    const cargos = await prisma.cargo.findMany()
-
-    // Retorna a lista de cargos encontrados
-    return cargos
+    return await prisma.cargo.findMany()
   }
 }

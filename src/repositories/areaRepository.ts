@@ -17,7 +17,6 @@ export class AreaRepository implements AreaRepositoryInterface {
   // Implementação do método findAll definido pela interface
   async findAll(): Promise<Area[]> {
     // Utiliza a instância prisma para encontrar todas as areas existentes
-    const areas = await prisma.area.findMany()
-    return areas
+    return await prisma.area.findMany()
   }
 }

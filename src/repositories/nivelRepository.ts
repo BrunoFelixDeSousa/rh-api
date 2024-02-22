@@ -14,8 +14,6 @@ export class NivelRepository implements NivelRepositoryInterface {
 
   // Implementação do método findAll definido pela interface
   async findAll(): Promise<Nivel[]> {
-    const niveis = await prisma.nivel.findMany()
-
-    return niveis
+    return await prisma.nivel.findMany()
   }
 }

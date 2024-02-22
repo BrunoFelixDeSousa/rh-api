@@ -23,7 +23,6 @@ export class AreaService {
   }
 
   async listarAreas() {
-    const areas = await this.areaRepository.findAll()
-    return areas
+    return await this.areaRepository.findAll()
   }
 }

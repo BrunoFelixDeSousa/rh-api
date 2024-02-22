@@ -35,9 +35,6 @@ export class CargoService {
   // Método assíncrono para listar todos os cargos, retorna uma Promise com uma lista de objetos do tipo Cargo
   async listarCargos() {
     // Utiliza o repositório de cargos para obter a lista de todos os cargos
-    const cargos = await this.cargoRepository.findAll()
-
-    // Retorna a lista de cargos
-    return cargos
+    return await this.cargoRepository.findAll()
   }
 }

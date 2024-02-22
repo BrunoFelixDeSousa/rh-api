@@ -31,7 +31,6 @@ export class NivelService {
 
   // Método assíncrono para listar todos os niveis, retorna uma Promise com uma lista de objetos do tipo Nivel
   async listarNiveis() {
-    const niveis = await this.nivelRepository.findAll()
-    return niveis
+    return await this.nivelRepository.findAll()
   }
 }
