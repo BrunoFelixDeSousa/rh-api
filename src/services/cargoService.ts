@@ -1,5 +1,4 @@
 /* eslint-disable no-useless-constructor */
-
 // Importa a interface CargoRepositoryInterface, necessária para garantir a conformidade com o contrato definido
 import { CargoRepositoryInterface } from '@/interfaces/cargoRepositoryInterface'
 // Importa o tipo Cargo do Prisma, que representa a estrutura de dados de um cargo
